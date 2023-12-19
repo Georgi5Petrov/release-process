@@ -6,9 +6,12 @@ pipeline {
             steps {
                 script {
                     try {
+                        withMaven(maven: 'Maven3') 
+                        {
                         sh 'whoami'
                         sh 'pwd'
                         sh 'mvn clean install'
+                        }
                     } catch (Exception e) {
                         echo 'Install failed with exception: ' + e.getMessage()
                         currentBuild.result = 'FAILURE'
