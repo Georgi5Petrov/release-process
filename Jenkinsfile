@@ -5,8 +5,8 @@ pipeline {
         stage("Setup")
         {  
         checkout scm
-
         }
+ 
         stage('Installl') {
             steps {
                 script {
