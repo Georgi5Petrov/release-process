@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                #sh './gradlew build' // run the actual build command 
+                sh './gradlew build' // run the actual build command 
             }
         }
         stage('Test'){
