@@ -1,12 +1,7 @@
 pipeline {
     agent any
 
-    stages {
-        stage("Setup")
-        {  
-        checkout scm
-        }
- 
+    stages { 
         stage('Installl') {
             steps {
                 script {
