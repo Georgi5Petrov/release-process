@@ -6,6 +6,8 @@ pipeline {
             steps {
                 script {
                     try {
+                        sh 'whoami'
+                        sh 'pwd'
                         sh 'mvn clean install'
                     } catch (Exception e) {
                         echo 'Install failed with exception: ' + e.getMessage()
