@@ -6,7 +6,7 @@ pipeline {
             steps {
                 script {
                     try {
-                        withMaven(maven: 'Maven3') 
+                        withMaven(jdk: 'JAVA8-3', maven: 'Maven3') 
                         {
                         sh 'whoami'
                         sh 'pwd'
