@@ -6,7 +6,7 @@ pipeline {
             steps {
                 script {
                     try {
-                        sh 'mvn clean install '
+                        sh 'mvn clean install'
                     } catch (Exception e) {
                         echo 'Install failed with exception: ' + e.getMessage()
                         currentBuild.result = 'FAILURE'
