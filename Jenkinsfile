@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     stages { 
-        stage('Installll') {
+        stage('Installl') {
             steps {
                 script {
                     try {
