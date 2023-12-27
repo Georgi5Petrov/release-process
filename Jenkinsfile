@@ -66,7 +66,9 @@ pipeline {
                 script {
                     try {
                         withSonarQubeEnv('Sonar') {
-                            sh 'mvn sonar:sonar'
+                            withMaven(jdk: 'JAVA8-3', maven: 'Maven3') {
+                            sh 'mvn clean package sonar:sonar'
+                            }
                         }
                     } catch (Exception e) {
                         echo 'SonarQube analysis failed with exception: ' + e.getMessage()
