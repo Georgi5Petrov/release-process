@@ -13,10 +13,12 @@ pipeline {
                         //sh '/var/jenkins_home/workspace/pipeline-job/my-app'
                         sh 'pwd'
                         sh 'ls -la'
-                        sh 'cd /var/lib/jenkins/workspace/pipeline/mvn-project'
-                        sh 'ls -la'
-                        sh 'mvn package'
-                        sh 'mvn clean install'
+                        dir('/var/lib/jenkins/workspace/pipeline/mvn-project') {
+                          sh "pwd"
+                          sh 'ls -la'
+                          sh 'mvn package'
+                          sh 'mvn clean install'
+                        }
                         }
                     } catch (Exception e) {
                         echo 'Install failed with exception: ' + e.getMessage()
