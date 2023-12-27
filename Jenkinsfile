@@ -14,6 +14,7 @@ pipeline {
                         sh 'pwd'
                         sh 'ls -la'
                         sh 'cd mvn-project'
+                        sh 'ls -la'
                         sh 'mvn package'
                         sh 'mvn clean install'
                         }
