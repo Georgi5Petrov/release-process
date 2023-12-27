@@ -16,7 +16,6 @@ pipeline {
                         dir('/var/lib/jenkins/workspace/pipeline/mvn-project') {
                           sh "pwd"
                           sh 'ls -la'
-                          sh 'mvn package'
                           sh 'mvn clean install'
                         }
                         }
