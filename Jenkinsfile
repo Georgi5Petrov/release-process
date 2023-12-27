@@ -13,6 +13,7 @@ pipeline {
                         //sh '/var/jenkins_home/workspace/pipeline-job/my-app'
                         sh 'pwd'
                         sh 'ls -la'
+                        sh 'cd mvn-project'
                         sh 'mvn package'
                         sh 'mvn clean install'
                         }
