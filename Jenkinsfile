@@ -32,7 +32,9 @@ pipeline {
                 script {
                     try {
                         withMaven(jdk: 'JAVA8-3', maven: 'Maven3') {
+                            dir('/var/lib/jenkins/workspace/pipeline/mvn-project') {
                         sh 'mvn compile'
+                        }
                         }
                     } catch (Exception e) {
                         echo 'Build failed with exception: ' + e.getMessage()
@@ -47,7 +49,9 @@ pipeline {
                 script {
                     try {
                         withMaven(jdk: 'JAVA8-3', maven: 'Maven3') {
+                            dir('/var/lib/jenkins/workspace/pipeline/mvn-project') {
                         sh 'mvn test'
+                            }
                         }
                     } catch (Exception e) {
                         echo 'Tests failed with exception: ' + e.getMessage()
