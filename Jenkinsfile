@@ -65,9 +65,11 @@ pipeline {
             steps {
                 script {
                     try {
-                        withSonarQubeEnv('SonarQube') {
+                        withSonarQubeEnv{
                             withMaven(jdk: 'JAVA8-3', maven: 'Maven3') {
+                                dir('/var/lib/jenkins/workspace/pipeline/mvn-project') {
                             sh 'mvn clean package sonar:sonar'
+                            }
                             }
                         }
                     } catch (Exception e) {
