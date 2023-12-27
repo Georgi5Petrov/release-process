@@ -65,7 +65,7 @@ pipeline {
             steps {
                 script {
                     try {
-                        withSonarQubeEnv('My SonarQube Server') {
+                        withSonarQubeEnv('Sonar') {
                             sh 'mvn sonar:sonar'
                         }
                     } catch (Exception e) {
