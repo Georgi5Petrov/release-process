@@ -31,7 +31,9 @@ pipeline {
             steps {
                 script {
                     try {
+                        withMaven(jdk: 'JAVA8-3', maven: 'Maven3') {
                         sh 'mvn compile'
+                        }
                     } catch (Exception e) {
                         echo 'Build failed with exception: ' + e.getMessage()
                         currentBuild.result = 'FAILURE'
@@ -44,7 +46,9 @@ pipeline {
             steps {
                 script {
                     try {
+                        withMaven(jdk: 'JAVA8-3', maven: 'Maven3') {
                         sh 'mvn test'
+                        }
                     } catch (Exception e) {
                         echo 'Tests failed with exception: ' + e.getMessage()
                         currentBuild.result = 'FAILURE'
