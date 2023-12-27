@@ -65,7 +65,7 @@ pipeline {
             steps {
                 script {
                     try {
-                        withSonarQubeEnv('Sonar') {
+                        withSonarQubeEnv('SonarQube') {
                             withMaven(jdk: 'JAVA8-3', maven: 'Maven3') {
                             sh 'mvn clean package sonar:sonar'
                             }
