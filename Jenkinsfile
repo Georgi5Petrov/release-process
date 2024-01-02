@@ -66,9 +66,10 @@ pipeline {
                 script {
                     try {
                         withSonarQubeEnv{
-                            withMaven(installationName: 'SonarQube') {
+                            withMaven(installationName: 'SonarQube', jdk: 'JAVA8-3', maven: 'Maven3') {
                                 dir('/var/lib/jenkins/workspace/pipeline/mvn-project') {
-                            sh 'mvn sonar'
+                            sh 'touch report-task.txt'
+                            sh 'mvn clean package sonar:sonar'
                             }
                             }
                         }
