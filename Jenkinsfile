@@ -96,6 +96,7 @@ pipeline {
                     } catch (Exception e) {
                         echo 'Dockerization failed with exception: ' + e.getMessage()
                         currentBuild.result = 'FAILURE'
+                        error("STOP!!!") 
                     }
                 }
             }
