@@ -89,9 +89,10 @@ pipeline {
                     try {
                         withCredentials([usernamePassword(credentialsId: 'artifactoryDockerCredentials', usernameVariable: 'ARTIFACTORY_DOCKER_USER', passwordVariable: 'ARTIFACTORY_DOCKER_PASSWORD')]) {
                             sh 'docker build -t my-app:latest .'
-                            sh 'docker login my-artifactory-docker-registry.com -u $ARTIFACTORY_DOCKER_USER -p $ARTIFACTORY_DOCKER_PASSWORD'
-                            sh 'docker tag my-app:latest my-artifactory-docker-registry.com/my-app:latest'
-                            sh 'docker push my-artifactory-docker-registry.com/my-app:latest'
+                            sh 'docker image list'
+                            //sh 'docker login my-artifactory-docker-registry.com -u $ARTIFACTORY_DOCKER_USER -p $ARTIFACTORY_DOCKER_PASSWORD'
+                            //sh 'docker tag my-app:latest my-artifactory-docker-registry.com/my-app:latest'
+                            //sh 'docker push my-artifactory-docker-registry.com/my-app:latest'
                         }
                     } catch (Exception e) {
                         echo 'Dockerization failed with exception: ' + e.getMessage()
