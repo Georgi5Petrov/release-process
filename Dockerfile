@@ -7,7 +7,7 @@ FROM openjdk:8-jdk-alpine
 VOLUME /tmp
 
 # The argument for the JAR_FILE could be passed during the Docker build
-ARG JAR_FILE=target/*.jar
+ARG JAR_FILE=mvn-project/target/java-validation-1.0.0-SNAPSHOT.jar
 
 # "layered JAR" structure
 COPY ${JAR_FILE} app.jar 
