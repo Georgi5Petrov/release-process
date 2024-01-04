@@ -88,6 +88,7 @@ pipeline {
                 script {
                     try {
                         withCredentials([usernamePassword(credentialsId: 'artifactoryDockerCredentials', usernameVariable: 'ARTIFACTORY_DOCKER_USER', passwordVariable: 'ARTIFACTORY_DOCKER_PASSWORD')]) {
+                            sh 'pwd | ls -ls'
                             sh 'docker build -t my-app:latest .'
                             sh 'docker image list'
                             //sh 'docker login my-artifactory-docker-registry.com -u $ARTIFACTORY_DOCKER_USER -p $ARTIFACTORY_DOCKER_PASSWORD'
